@@ -4,7 +4,7 @@ lazy val akkaVersion     = "2.6.9"
 lazy val circeVersion    = "0.14.1"
 
 scalaVersion    := "2.13.4"
-name := "akka-cassandra-demo"
+name := "minibank-cassandra-demo"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http"                  % akkaHttpVersion,
