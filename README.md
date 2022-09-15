@@ -1,5 +1,5 @@
 stack: Akka Actors, Akka Persistence, Akka HTTP, Event Sourcing, Cassandra, Cats
-
+source: https://blog.rockthejvm.com/akka-cassandra-project/
 
 ## Run cassandra on Docker Compose
 ```bash
@@ -19,3 +19,19 @@ cqlsh> exit;
 ```
 
 ## How this works ?
+
+```bash
+# run Cassandra, then run the Boot app. It will start the server. Set up the host:
+host=http://localhost:8080
+
+### Create Account
+curl -v -H 'Content-Type: application/json' -X POST -d '{"user": "michael", "currency": "EUR", "balance": "100" }' ${host}/bank
+
+### Read Account
+# from the response above get the value of Location header and use it as <account_id> :
+# other account IDs can be found directly in Cassandra:   cqlsh> select * from akka.all_persistence_ids ;  
+curl -v -X GET ${host}/bank/<account_id>
+
+### Update Account
+curl -v -H 'Content-Type: application/json' -X PUT -d '{"currency": "PLN", "amount": "467" }' ${host}/bank/<account_id>
+```

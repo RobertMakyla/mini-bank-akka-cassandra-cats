@@ -16,8 +16,6 @@ object Bank {
   // commands = messages
   import PersistentBankAccount.Command
   import PersistentBankAccount.Command._
-  import PersistentBankAccount.Event
-  import PersistentBankAccount.Event._
   import PersistentBankAccount.Response._
 
   // events
