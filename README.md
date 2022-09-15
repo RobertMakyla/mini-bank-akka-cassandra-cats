@@ -33,5 +33,10 @@ curl -v -H 'Content-Type: application/json' -X POST -d '{"user": "michael", "cur
 curl -v -X GET ${host}/bank/<account_id>
 
 ### Update Account
-curl -v -H 'Content-Type: application/json' -X PUT -d '{"currency": "PLN", "amount": "467" }' ${host}/bank/<account_id>
+curl -v -H 'Content-Type: application/json' -X PUT -d '{"currency": "EUR", "amount": "25" }' ${host}/bank/<account_id>
+
+### Test Cats Validation
+curl -v -H 'Content-Type: application/json' -X POST -d '{"user": "jakub", "currency":"", "balance": "-10" }' $host/bank
+
+# this should give you error 400 Bad Request: {"reason":"currency is empty, balance is negative"}
 ```
