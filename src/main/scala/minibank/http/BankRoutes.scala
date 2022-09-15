@@ -9,8 +9,8 @@ import minibank.actors.PersistentBankAccount.Command._
 import minibank.actors.PersistentBankAccount.Response
 import minibank.actors.PersistentBankAccount.Response._
 import minibank.http.BankValidation._
-import io.circe.generic.auto._
-import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._
+import io.circe.generic.auto._ // io circe - apparently best lib for JSON parsing in Scala: https://circe.github.io/circe/
+import de.heikoseeberger.akkahttpcirce.FailFastCirceSupport._ //to use circe smoothly with Akka HTTP: https://github.com/hseeberger/akka-http-json
 import akka.actor.typed.scaladsl.AskPattern._
 import akka.util.Timeout
 
